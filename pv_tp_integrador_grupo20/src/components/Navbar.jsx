@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import { ThemeContext } from "../context/ThemeContext";
+import { useProducts } from "../context/ProductContext";
 
 const Navbar = () => {
   const { theme } = useContext(ThemeContext);
+  const { favorites } = useProducts();
 
   return (
     <nav className="navbar">
@@ -26,7 +28,7 @@ const Navbar = () => {
             isActive ? "navbar-link active" : "navbar-link"
           }
         >
-          Favorites
+          Favorites {favorites.length > 0 && <span className="favorite-count">({favorites.length})</span>}
         </NavLink>
         <NavLink to="/new-product" className="btn btn-primary">
           New Product

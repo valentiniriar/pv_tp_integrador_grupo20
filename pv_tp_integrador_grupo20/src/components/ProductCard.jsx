@@ -1,9 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useProducts } from "../context/ProductContext";
+import { useToast } from "../context/ToastContext";
 
 const ProductCard = ({ product }) => {
   const { toggleFavorite, isFavorite } = useProducts();
+  const { showToast } = useToast();
+
+  const handleFavoriteClick = () => {
+    toggleFavorite(product.id);
+    showToast(
+      isFavorite(product.id)
+        ? "Product removed from favorites"
+        : "Product added to favorites",
+      "success"
+    );
+  };
 
   return (
     <div className="product-card">
@@ -19,15 +31,15 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="card-footer">
         <Link to={`/product/${product.id}`} className="btn btn-primary">
-          Ver más
+          View Details
         </Link>
         <button
-          onClick={() => toggleFavorite(product.id)}
+          onClick={handleFavoriteClick}
           className={`favorite-btn ${isFavorite(product.id) ? "active" : ""}`}
           title={
             isFavorite(product.id)
-              ? "Quitar de favoritos"
-              : "Añadir a favoritos"
+              ? "Remove from favorites"
+              : "Add to favorites"
           }
         >
           ❤
