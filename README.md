@@ -2,9 +2,10 @@
 
 ## Integrantes del Grupo
 
+- Iriarte Gloss, Valentin Mateo - Usuario GitHub: valentiniriar
+- Churquina, Facundo - Usuario GitHub: Facudebug123
 - Gutierrez Nanda, Mauro Nahuel - Usuario GitHub: MauroNanda
-- Churquina Facundo - Usuario GitHub: Facudebug123
--
+- Chavez, Rodrigo Nicolas - Usuario GitHub: nico690
 
 ## Descripción del Proyecto
 
@@ -27,6 +28,31 @@ Este proyecto es una Single Page Application (SPA) desarrollada como trabajo pr�
 - **Gestión de Productos**: Permite crear, editar y eliminar productos
 - **Tema Claro/Oscuro**: Implementación de modo oscuro y claro
 
+### Sistema de Autenticación (Segunda Etapa)
+
+- **Registro de Usuario**: Formulario de registro con validaciones
+  - Validación de formato de email
+  - Contraseña mínima de 6 caracteres
+  - Confirmación de contraseña
+  - Almacenamiento en localStorage
+- **Inicio de Sesión**: Autenticación de usuarios registrados
+  - Verificación de credenciales
+  - Persistencia de sesión en localStorage
+  - Mensaje de bienvenida personalizado
+- **Cierre de Sesión**: Logout con limpieza de estado
+- **Rutas Protegidas**: Acceso restringido a usuarios autenticados
+- **Rehidratación de Estado**: Mantenimiento de sesión al recargar página
+
+### Funcionalidades Adicionales Implementadas
+
+- **Filtros y Búsqueda**: Filtrado por categoría y búsqueda por nombre de producto
+- **Ordenamiento**: Ordenamiento por precio (ascendente/descendente)
+- **Sistema de Notificaciones**: Toast notifications para feedback del usuario
+- **Diseño Responsive**: Interfaz adaptativa para diferentes tamaños de pantalla
+- **Persistencia de Datos**: Los favoritos se mantienen al recargar la página
+- **Validación de Formularios**: Validación en tiempo real para la creación/edición de productos
+- **Manejo de Estados de Carga**: Indicadores de loading y manejo de errores
+
 ### Características Técnicas
 
 - Consumo de la API FakeStore para datos de productos
@@ -34,6 +60,11 @@ Este proyecto es una Single Page Application (SPA) desarrollada como trabajo pr�
 - Navegación dinámica entre páginas
 - Componentes reutilizables
 - Diseño responsive
+- **Sistema de autenticación simulado con localStorage**
+- **Context API para manejo de estado de autenticación**
+- **Rutas protegidas con componente PrivateRoute**
+- **Validaciones de formulario en tiempo real**
+- **Rehidratación automática del estado de usuario**
 
 ### Instalación y Uso
 
