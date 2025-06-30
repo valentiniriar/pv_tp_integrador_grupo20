@@ -11,24 +11,29 @@ const ProductCard = ({ product }) => {
     toggleFavorite(product.id);
     showToast(
       isFavorite(product.id)
-        ? "Product removed from favorites"
-        : "Product added to favorites",
+        ? "Producto quitado de favoritos"
+        : "Producto añadido a favoritos",
       "success"
     );
   };
 
+  const shortDescription = product.description.substring(0, 100) + "...";
+
   return (
     <div className="product-card">
-      <div className="card-image-container">
-        <img src={product.image} alt={product.title} className="card-image" />
+      <div>
+        <div className="card-image-container">
+          <img src={product.image} alt={product.title} className="card-image" />
+        </div>
+        <div className="card-body">
+          <h3 className="card-title" title={product.title}>
+            {product.title}
+          </h3>
+          <p className="card-price">${product.price}</p>
+          <p className="card-description">{shortDescription}</p>
+        </div>
       </div>
-      <div className="card-body">
-        <h3 className="card-title" title={product.title}>
-          {product.title}
-        </h3>
-        <p className="card-price">${product.price}</p>
-        <p className="card-description">{product.description}</p>
-      </div>
+
       <div className="card-footer">
         <Link to={`/product/${product.id}`} className="btn btn-primary">
           View Details
@@ -42,7 +47,7 @@ const ProductCard = ({ product }) => {
               : "Add to favorites"
           }
         >
-          ❤
+          {"❤️"}
         </button>
       </div>
     </div>
